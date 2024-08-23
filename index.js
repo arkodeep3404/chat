@@ -38,7 +38,7 @@ const chainWithHistory = new RunnableWithMessageHistory({
       config: {
         region: process.env.AWS_REGION,
         credentials: {
-          accessKeyId: process.env.AWS_ACCESS_KEY,
+          accessKeyId: process.env.AWS_ACCESS_KEY_ID,
           secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
         },
       },
@@ -60,7 +60,7 @@ const chainWithHistory = new RunnableWithMessageHistory({
 
 const res2 = await chainWithHistory.invoke(
   { input: "What did I just say my name was?" },
-  { configurable: { sessionId: "test1" } }
+  { configurable: { sessionId: "test" } }
 );
 console.log(res2);
 
