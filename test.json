@@ -1,0 +1,84 @@
+// without tool call
+
+AIMessage {
+    "id": "chatcmpl-A08umLiAxQS9JNSjKFHsoN62VhLk6",
+    "content": "Hello Arkodeep! How can I assist you today?",
+    "additional_kwargs": {},
+    "response_metadata": {
+        "tokenUsage": {
+            "completionTokens": 13,
+            "promptTokens": 78,
+            "totalTokens": 91
+        },
+        "finish_reason": "stop",
+        "system_fingerprint": "fp_48196bc67a"
+    },
+    "tool_calls": [],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+        "input_tokens": 78,
+        "output_tokens": 13,
+        "total_tokens": 91
+    }
+}
+  AIMessage {
+    "id": "chatcmpl-A08un9aUYgapgytCADWJOeIPSReQg",
+    "content": "Your name is Arkodeep. How can I help you today?",
+    "additional_kwargs": {},
+    "response_metadata": {
+        "tokenUsage": {
+            "completionTokens": 15,
+            "promptTokens": 102,
+            "totalTokens": 117
+        },
+        "finish_reason": "stop",
+        "system_fingerprint": "fp_507c9469a1"
+    },
+    "tool_calls": [],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+        "input_tokens": 102,
+        "output_tokens": 15,
+        "total_tokens": 117
+    }
+}
+// with tool call
+
+AIMessage {
+    "id": "chatcmpl-A092a84796JH1quWrhxhg3jlA3mk0",
+    "content": "",
+    "additional_kwargs": {
+        "tool_calls": [
+            {
+                "id": "call_ICpKkYeFamSgmhkokDubyrTw",
+                "type": "function",
+                "function": "[Object]"
+            }
+        ]
+    },
+    "response_metadata": {
+        "tokenUsage": {
+            "completionTokens": 17,
+            "promptTokens": 159,
+            "totalTokens": 176
+        },
+        "finish_reason": "tool_calls",
+        "system_fingerprint": "fp_48196bc67a"
+    },
+    "tool_calls": [
+        {
+            "name": "Get-Image-Tool",
+            "args": {
+                "input": "random"
+            },
+            "type": "tool_call",
+            "id": "call_ICpKkYeFamSgmhkokDubyrTw"
+        }
+    ],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+        "input_tokens": 159,
+        "output_tokens": 17,
+        "total_tokens": 176
+    }
+}
