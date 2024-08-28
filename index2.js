@@ -3,7 +3,7 @@ dotenv.config();
 
 import { tool } from "@langchain/core/tools";
 import { DynamoDBChatMessageHistory } from "@langchain/community/stores/message/dynamodb";
-import { ChatOpenAI } from "@langchain/openai";
+import { AzureChatOpenAI } from "@langchain/openai";
 import { RunnableWithMessageHistory } from "@langchain/core/runnables";
 import {
   ChatPromptTemplate,
@@ -80,7 +80,7 @@ const getImageTool = tool(
   }
 );
 
-const llm = new ChatOpenAI({
+const llm = new AzureChatOpenAI({
   model: "gpt-4o-mini",
 }).bindTools([getImageTool]);
 
@@ -121,11 +121,11 @@ const runnableWithChatHistory = new RunnableWithMessageHistory({
 // }
 
 const res2 = await runnableWithChatHistory.invoke(
-  { input: "give me an img" },
+  { input: "what is my name?" },
   { configurable: { sessionId: process.env.SESSION_ID } }
 );
 
-//console.log(res2);
+console.log(res2);
 
 if (res2.tool_calls.length === 0) {
   console.log(res2.content);
